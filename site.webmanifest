@@ -1,0 +1,19 @@
+{
+  "name": "힐스테이트 회룡역 파크뷰",
+  "short_name": "힐스테이트 회룡역",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png?v=20260421",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png?v=20260421",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#a61013",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
