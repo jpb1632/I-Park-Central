@@ -766,7 +766,7 @@
             heroIndex = adjacentIndex;
             renderHeroSlides();
             restartHeroAutoplay();
-          }, 360);
+          }, 620);
           return true;
         }
 
@@ -784,7 +784,7 @@
         heroReleaseTimer = window.setTimeout(function() {
           renderHeroSlides();
           startHeroAutoplay();
-        }, 320);
+        }, 560);
         return false;
       }
 
@@ -891,13 +891,13 @@
           return;
         }
 
-        stageEl.style.setProperty("--popup-desktop-scale", "0.9");
+        stageEl.style.setProperty("--popup-desktop-scale", "1.035");
         const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
         const availableHeight = Math.max(240, viewportHeight - 32);
         const measuredHeight = stageEl.getBoundingClientRect().height;
         if (!measuredHeight || measuredHeight <= availableHeight) return;
 
-        const fitScale = Math.max(0.55, Math.min(0.9, 0.9 * (availableHeight / measuredHeight)));
+        const fitScale = Math.max(0.55, Math.min(1.035, 1.035 * (availableHeight / measuredHeight)));
         stageEl.style.setProperty("--popup-desktop-scale", fitScale.toFixed(3));
       }
 
@@ -1922,7 +1922,8 @@ function initN5Reveal(sectionEl) {
   if (!cards.length) return;
 
   cards.forEach(function (card) {
-    var images = Array.prototype.slice.call(card.querySelectorAll('img'));
+    var images = Array.prototype.slice.call(card.querySelectorAll('.n6-location-main > img'));
+    var excludedArea = card.querySelector('.n6-location-sub-card');
     if (!images.length) return;
 
     var lens = document.createElement('div');
@@ -1950,6 +1951,19 @@ function initN5Reveal(sectionEl) {
     }
 
     function moveLens(event) {
+      if (excludedArea) {
+        var excludedRect = excludedArea.getBoundingClientRect();
+        var isExcluded =
+          event.clientX >= excludedRect.left &&
+          event.clientX <= excludedRect.right &&
+          event.clientY >= excludedRect.top &&
+          event.clientY <= excludedRect.bottom;
+        if (isExcluded) {
+          card.classList.remove('is-magnifying');
+          return;
+        }
+      }
+
       var cardRect = card.getBoundingClientRect();
       var size = lens.offsetWidth || 190;
       var radius = size / 2;
@@ -1977,12 +1991,249 @@ function initN5Reveal(sectionEl) {
       moveLens(event);
     });
 
-    card.addEventListener('mousemove', moveLens);
+    card.addEventListener('mousemove', function (event) {
+      card.classList.add('is-magnifying');
+      moveLens(event);
+    });
 
     card.addEventListener('mouseleave', function () {
       card.classList.remove('is-magnifying');
     });
   });
+})();
+
+(function () {
+  function initUnitTypes() {
+    var root = document.querySelector('[data-unit-types]');
+    if (!root) return;
+
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('.unit-types-tab'));
+    var panels = Array.prototype.slice.call(root.querySelectorAll('.unit-types-panel'));
+    var bars = Array.prototype.slice.call(root.querySelectorAll('.unit-types-progress-bar'));
+    var current = root.querySelector('.unit-types-current');
+    var prev = root.querySelector('.unit-types-prev');
+    var next = root.querySelector('.unit-types-next');
+    var stage = root.querySelector('.unit-types-swiper');
+    if (!tabs.length || !panels.length) return;
+
+    var activeIndex = Math.max(0, tabs.findIndex(function (tab) {
+      return tab.classList.contains('is-active');
+    }));
+    var swiper = null;
+    var magnifier = null;
+    var magnifierZoom = 2.15;
+
+    function syncActive(index, shouldFocus, fromSwiper) {
+      activeIndex = (index + tabs.length) % tabs.length;
+
+      tabs.forEach(function (tab, idx) {
+        var isActive = idx === activeIndex;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        tab.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach(function (panel, idx) {
+        var isActive = idx === activeIndex;
+        panel.classList.toggle('is-active', isActive);
+        panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        if (!swiper) {
+          panel.hidden = !isActive;
+        } else {
+          panel.hidden = false;
+        }
+      });
+
+      bars.forEach(function (bar, idx) {
+        bar.classList.toggle('is-active', idx === activeIndex);
+      });
+
+      if (current) {
+        current.textContent = tabs[activeIndex].dataset.type || tabs[activeIndex].textContent.trim();
+      }
+
+      if (shouldFocus) {
+        tabs[activeIndex].focus();
+      }
+
+      if (swiper && !fromSwiper) {
+        if (typeof swiper.slideToLoop === 'function') {
+          swiper.slideToLoop(activeIndex);
+        } else if (swiper.activeIndex !== activeIndex) {
+          swiper.slideTo(activeIndex);
+        }
+      }
+    }
+
+    tabs.forEach(function (tab, idx) {
+      tab.addEventListener('click', function () {
+        syncActive(idx, false, false);
+      });
+
+      tab.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          syncActive(activeIndex - 1, true, false);
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          syncActive(activeIndex + 1, true, false);
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          syncActive(0, true, false);
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          syncActive(tabs.length - 1, true, false);
+        }
+      });
+    });
+
+    if (prev) {
+      prev.addEventListener('click', function () {
+        if (swiper) {
+          swiper.slidePrev();
+        } else {
+          syncActive(activeIndex - 1, false, false);
+        }
+      });
+    }
+
+    if (next) {
+      next.addEventListener('click', function () {
+        if (swiper) {
+          swiper.slideNext();
+        } else {
+          syncActive(activeIndex + 1, false, false);
+        }
+      });
+    }
+
+    function hideMagnifier() {
+      if (!stage) return;
+      stage.classList.remove('is-magnifying');
+    }
+
+    function getActiveUnitImage(clientX, clientY) {
+      if (!stage) return null;
+      var activeImages = Array.prototype.slice.call(stage.querySelectorAll('.unit-types-panel.swiper-slide-active img'));
+      if (!activeImages.length) {
+        activeImages = Array.prototype.slice.call(stage.querySelectorAll('.unit-types-panel.is-active img'));
+      }
+
+      for (var i = 0; i < activeImages.length; i += 1) {
+        var rect = activeImages[i].getBoundingClientRect();
+        if (clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom) {
+          return {
+            image: activeImages[i],
+            rect: rect
+          };
+        }
+      }
+
+      return null;
+    }
+
+    function moveMagnifier(event) {
+      if (!stage || !magnifier || stage.classList.contains('is-dragging')) {
+        hideMagnifier();
+        return;
+      }
+
+      var target = getActiveUnitImage(event.clientX, event.clientY);
+      if (!target) {
+        hideMagnifier();
+        return;
+      }
+
+      var imgRect = target.rect;
+      var xRatio = (event.clientX - imgRect.left) / imgRect.width;
+      var yRatio = (event.clientY - imgRect.top) / imgRect.height;
+      var isUnitFeatureArea =
+        xRatio >= 0.64 &&
+        xRatio <= 0.99 &&
+        yRatio >= 0.56 &&
+        yRatio <= 0.98;
+
+      if (!isUnitFeatureArea) {
+        hideMagnifier();
+        return;
+      }
+
+      var stageRect = stage.getBoundingClientRect();
+      var lensSize = magnifier.offsetWidth || 240;
+      var radius = lensSize / 2;
+      var rawX = event.clientX - stageRect.left;
+      var rawY = event.clientY - stageRect.top;
+      var clampedX = Math.max(radius, Math.min(stageRect.width - radius, rawX));
+      var clampedY = Math.max(radius, Math.min(stageRect.height - radius, rawY));
+      var imgX = Math.max(0, Math.min(imgRect.width, event.clientX - imgRect.left));
+      var imgY = Math.max(0, Math.min(imgRect.height, event.clientY - imgRect.top));
+      var src = target.image.currentSrc || target.image.src;
+
+      if (src && magnifier.dataset.src !== src) {
+        magnifier.style.backgroundImage = 'url("' + src + '")';
+        magnifier.dataset.src = src;
+      }
+
+      magnifier.style.left = clampedX + 'px';
+      magnifier.style.top = clampedY + 'px';
+      magnifier.style.backgroundSize = imgRect.width * magnifierZoom + 'px ' + imgRect.height * magnifierZoom + 'px';
+      magnifier.style.backgroundPosition =
+        (-imgX * magnifierZoom + radius) + 'px ' + (-imgY * magnifierZoom + radius) + 'px';
+      stage.classList.add('is-magnifying');
+    }
+
+    if (stage && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      magnifier = document.createElement('div');
+      magnifier.className = 'unit-types-magnifier-lens';
+      stage.appendChild(magnifier);
+      stage.addEventListener('mousemove', moveMagnifier);
+      stage.addEventListener('mouseleave', hideMagnifier);
+    }
+
+    if (stage && typeof Swiper !== 'undefined') {
+      swiper = new Swiper(stage, {
+        slidesPerView: 1,
+        spaceBetween: 22,
+        speed: 1040,
+        loop: true,
+        loopAdditionalSlides: 2,
+        grabCursor: true,
+        simulateTouch: true,
+        threshold: 8,
+        resistanceRatio: 0.18,
+        longSwipesRatio: 0.22,
+        longSwipesMs: 320,
+        followFinger: true,
+        on: {
+          init: function () {
+            syncActive(this.realIndex || 0, false, true);
+          },
+          slideChange: function () {
+            syncActive(this.realIndex || 0, false, true);
+          },
+          touchStart: function () {
+            hideMagnifier();
+            stage.classList.add('is-dragging');
+          },
+          touchEnd: function () {
+            stage.classList.remove('is-dragging');
+          },
+          transitionEnd: function () {
+            stage.classList.remove('is-dragging');
+            hideMagnifier();
+          }
+        }
+      });
+    }
+
+    syncActive(activeIndex, false, false);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUnitTypes);
+  } else {
+    initUnitTypes();
+  }
 })();
 
 (function () {

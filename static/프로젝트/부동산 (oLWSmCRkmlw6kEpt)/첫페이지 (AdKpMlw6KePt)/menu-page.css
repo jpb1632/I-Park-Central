@@ -17,6 +17,15 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
   min-height: 0;
   padding-top: 8rem;
   padding-bottom: 4rem;
+  transition: opacity 0.16s ease;
+}
+
+.menupage-main.menupage-nav-fade {
+  opacity: 0;
+}
+
+body.menu-page-view {
+  background: #0b0d12;
 }
 
 .menupage-hero {
@@ -94,12 +103,13 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
 }
 
 .menupage-tab:hover {
-  color: #a00e15;
+  color: #001eb9;
 }
 
 .menupage-tab.is-active {
-  color: #a00e15;
-  border-color: #a00e15;
+  color: #001eb9;
+  border-color: #001eb9;
+  font-weight: 800;
 }
 
 .menupage-content {
@@ -148,7 +158,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
 
 .menupage-content-title-logo {
   display: block;
-  width: min(49.3rem, 85%);
+  width: min(56.7rem, 98%);
   height: auto;
 }
 
@@ -653,24 +663,42 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
   border-bottom: 0 !important;
 }
 
+.menu-page-view .properties-N3 {
+  margin-top: 0 !important;
+  background: #0b0d12 !important;
+}
+
+.menu-page-view .properties-N3 .footer-container {
+  background: #0b0d12 !important;
+  padding-bottom: 11rem !important;
+  padding-bottom: calc(1.4rem + (var(--consult-base-height, 76) * 1px * var(--consult-scale, 1))) !important;
+}
+
+@media (max-width: 900px) {
+  .menu-page-view .properties-N3 .footer-container {
+    padding-bottom: 12rem !important;
+    padding-bottom: calc(2rem + ((var(--consult-base-height) + 20) * 1px * var(--consult-scale, 1))) !important;
+  }
+}
+
 @media (min-width: 993px) {
   .menu-page-view .properties-N1 .header-title .brand-mark,
   .menu-page-view .properties-N1:hover .header-title .brand-mark,
   .menu-page-view .properties-N1.header-top-active .header-title .brand-mark,
   .menu-page-view .properties-N1.header-top-active:hover .header-title .brand-mark {
-    background-image: url("../../../../new-assets/logo_off_h3.png") !important;
+    background-image: url("../../../../new-assets/logo_off_i1.png") !important;
   }
 
   .menu-page-view .properties-N1,
   .menu-page-view .properties-N1.header-top-active,
   .menu-page-view .properties-N1.header-top-active:hover {
-    background: #a00e15 !important;
+    background: #000 !important;
     border-top: 0 !important;
     box-shadow: none !important;
   }
 
   .menu-page-view .properties-N1 .header-container {
-    background: #a00e15 !important;
+    background: #000 !important;
     border-bottom: 0 !important;
   }
 
@@ -701,13 +729,13 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
 
   .menu-page-view .properties-N1 .header-utils .call-inline {
     background: #fff !important;
-    color: #a00e15 !important;
+    color: #000 !important;
     border: 0 !important;
   }
 
   .menu-page-view .properties-N1 .header-utils .call-inline .call-icon,
   .menu-page-view .properties-N1 .header-utils .call-inline .call-text {
-    color: #a00e15 !important;
+    color: #000 !important;
   }
 
   .menu-page-view .properties-N1 .header-gnbitem.menu-current .header-gnblink span {
@@ -752,7 +780,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
 
   .menu-page-view .properties-N1 .header-sublink:hover,
   .menu-page-view .properties-N1 .header-sublink:active {
-    background: #a00e15 !important;
+    background: #000 !important;
     color: #fff !important;
   }
 
@@ -766,7 +794,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
   .menu-page-view .properties-N1:hover .header-title .brand-mark,
   .menu-page-view .properties-N1.header-top-active .header-title .brand-mark,
   .menu-page-view .properties-N1.header-top-active:hover .header-title .brand-mark {
-    background-image: url("../../../../new-assets/logo_off_h3.png") !important;
+    background-image: url("../../../../new-assets/logo_off_i1.png") !important;
   }
 
   body.menu-page-view {
@@ -785,7 +813,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
   .menu-page-view .properties-N1,
   .menu-page-view .properties-N1.header-top-active,
   .menu-page-view .properties-N1.header-top-active:hover {
-    background: #a00e15 !important;
+    background: #000 !important;
     border-top: 0 !important;
     box-shadow: none !important;
   }
@@ -795,7 +823,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
   }
 
   .menu-page-view .properties-N1 .header-container {
-    background: #a00e15 !important;
+    background: #000 !important;
     overflow: visible;
     padding-right: 0.4rem;
   }
@@ -845,7 +873,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
 
   .menu-page-view .properties-N1 .header-utils .call-inline {
     background: #fff !important;
-    color: #a00e15 !important;
+    color: #000 !important;
     border: 0 !important;
     flex-shrink: 0;
     position: relative;
@@ -855,7 +883,7 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
 
   .menu-page-view .properties-N1 .header-utils .call-inline .call-icon,
   .menu-page-view .properties-N1 .header-utils .call-inline .call-text {
-    color: #a00e15 !important;
+    color: #000 !important;
   }
 
   .menu-page-view .properties-N1 .btn-momenu {
@@ -1139,6 +1167,40 @@ html.content-guard-on *:not(input):not(textarea):not([contenteditable="true"]) {
   .menupage-notes-list li + li {
     margin-top: 0.25rem;
   }
+}
+
+@keyframes locationSectionFadeUp {
+  0%   { opacity: 0; transform: translateY(2.8rem); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.menupage-canvas.is-location-layout {
+  overflow: visible;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 0;
+}
+
+.menupage-location-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  background: #fff;
+  box-shadow:
+    0 1rem 2.4rem rgba(19, 40, 74, 0.075),
+    0 0.25rem 0.8rem rgba(19, 40, 74, 0.04),
+    0 0 0 1px rgba(18, 28, 40, 0.04);
+  animation: locationSectionFadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.menupage-location-section--second {
+  margin-top: 2.8rem;
+  animation-delay: 1.6s;
+}
+.menupage-location-section img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

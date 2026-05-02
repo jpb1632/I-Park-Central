@@ -1,14 +1,14 @@
 {
-  "name": "힐스테이트 회룡역 파크뷰",
-  "short_name": "힐스테이트 회룡역",
+  "name": "의정부역 센트럴 아이파크",
+  "short_name": "센트럴 아이파크",
   "icons": [
     {
-      "src": "android-chrome-192x192.png?v=20260421",
+      "src": "android-chrome-192x192.png?v=20260502",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "android-chrome-512x512.png?v=20260421",
+      "src": "android-chrome-512x512.png?v=20260502",
       "sizes": "512x512",
       "type": "image/png"
     }

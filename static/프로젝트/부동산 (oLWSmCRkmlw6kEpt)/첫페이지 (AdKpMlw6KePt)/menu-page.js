@@ -1,7 +1,7 @@
-﻿(function () {
-  const SITE_NAME = "힐스테이트 회룡역 파크뷰";
-  const FIXED_CONTENT_TITLE = "힐스테이트 회룡역 파크뷰";
-  const CONTENT_TITLE_LOGO_SRC = "../../../../new-assets/logo_on_h3.png";
+(function () {
+  const SITE_NAME = "의정부역 센트럴 아이파크";
+  const FIXED_CONTENT_TITLE = "의정부역 센트럴 아이파크";
+  const CONTENT_TITLE_LOGO_SRC = "../../../../new-assets/logo_on_i1.png";
   function initBasicContentGuard() {
     if (window.__basicContentGuardInitialized) return;
     window.__basicContentGuardInitialized = true;
@@ -200,9 +200,9 @@
   const CONTENT_CONFIG = {
     business: {
       overview: {
-        title: "힐스테이트 회룡역 파크뷰 사업개요",
+        title: "의정부역 센트럴 아이파크 사업개요",
         subtitle: "의정부 1,816세대 1군 브랜드 아파트",
-        copy: "힐스테이트 회룡역 파크뷰",
+        copy: "의정부역 센트럴 아이파크",
         copySub: "",
         image: "",
         canvasLayout: [
@@ -218,28 +218,29 @@
         notes: [],
       },
       location: {
-        title: "힐스테이트 회룡역 파크뷰 입지환경",
+        title: "의정부역 센트럴 아이파크 입지환경",
         subtitle: "서울까지 2정거장! 더블역세권",
         copy: "강남까지 약 20분대 도착!",
         copySub: "",
         image: "",
         canvasLayout: [
           {
-            type: "stack",
-            images: [
-              "../../../../new-assets/menu/Location environment_1_h1.jpg",
-              "../../../../new-assets/menu/Location environment_3_h1.jpg",
-              "../../../../new-assets/menu/Location environment_4_h1.png",
-            ],
+            type: "location-card",
+            mainImage: "../../../../new-assets/Location environment_1_i1.png",
+          },
+          {
+            type: "image",
+            src: "../../../../new-assets/Location environment_1_sub_i2.png",
+            className: "menupage-location-section menupage-location-section--second",
           },
         ],
         specs: [],
         notes: [],
       },
       brand: {
-        title: "힐스테이트 회룡역 파크뷰 브랜드소개",
+        title: "의정부역 센트럴 아이파크 브랜드소개",
         subtitle: "한 차원 더 높은 생활의 가치와",
-        copy: "남다른 삶을 제공하는 힐스테이트",
+        copy: "남다른 삶을 제공하는 아이파크",
         copySub: "",
         image: "",
         canvasLayout: [
@@ -249,9 +250,9 @@
         notes: [],
       },
       premium: {
-        title: "힐스테이트 회룡역 파크뷰 프리미엄",
+        title: "의정부역 센트럴 아이파크 프리미엄",
         subtitle: "더블역세권, 숲세권, 학세권까지 모두 품은",
-        copy: "힐스테이트 회룡역 파크뷰!",
+        copy: "의정부역 센트럴 아이파크!",
         copySub: "",
         image: "",
         canvasLayout: [
@@ -275,7 +276,7 @@
         notes: [],
       },
       default: {
-        title: "힐스테이트 회룡역 파크뷰",
+        title: "의정부역 센트럴 아이파크",
         subtitle: "프로젝트 정보",
         copy: "해당 메뉴의 상세 이미지를 이 영역에 배치합니다.",
         copySub: "",
@@ -288,7 +289,7 @@
       design: {
         subtitle: "단지설계",
         copy: "양주의 새로운 중심에서 만나는",
-        copySub: "힐스테이트 파티오포레의 프리미엄 라이프!",
+        copySub: "의정부역 센트럴 아이파크의 프리미엄 라이프!",
         image: "../resources/images/complex guide1.jpg",
       },
       community: {
@@ -311,7 +312,7 @@
       },
       unitplan: {
         subtitle: "의정부 1,816세대 1군 브랜드 아파트",
-        copy: "힐스테이트 회룡역 파크뷰",
+        copy: "의정부역 센트럴 아이파크",
         copySub: "",
         image: "",
         canvasLayout: [
@@ -319,7 +320,7 @@
         ],
       },
       myhills: {
-        subtitle: "클릭 한번으로 누리는 힐스테이트",
+        subtitle: "클릭 한번으로 누리는 아이파크",
         copy: "사용자 편의를 생각한 생활 솔루션",
         copySub: "",
         image: "",
@@ -349,7 +350,7 @@
         ],
       },
       default: {
-        title: "힐스테이트 회룡역 파크뷰",
+        title: "의정부역 센트럴 아이파크",
         subtitle: "단지 안내",
         copy: "해당 메뉴의 상세 이미지를 이 영역에 배치합니다.",
         copySub: "",
@@ -360,7 +361,7 @@
     },
     type: {
       type: {
-        title: "힐스테이트 회룡역 파크뷰",
+        title: "의정부역 센트럴 아이파크",
         subtitle: "취향을 담은 혁신 평면에",
         copy: "트렌디한 라이프 스타일을 더하다!",
         copySub: "",
@@ -369,16 +370,16 @@
         notes: [],
       },
       interior: {
-        title: "힐스테이트 회룡역 파크뷰",
+        title: "의정부역 센트럴 아이파크",
         subtitle: "풍요로움과 아름다움을 담은",
-        copy: "힐스테이트만의 고품격 인테리어",
+        copy: "아이파크만의 고품격 인테리어",
         copySub: "",
         image: "",
         specs: [],
         notes: [],
       },
       default: {
-        title: "힐스테이트 회룡역 파크뷰",
+        title: "의정부역 센트럴 아이파크",
         subtitle: "타입 안내",
         copy: "해당 메뉴의 상세 이미지를 이 영역에 배치합니다.",
         copySub: "",
@@ -389,7 +390,7 @@
     },
     route: {
       default: {
-        title: "힐스테이트 회룡역 파크뷰",
+        title: "의정부역 센트럴 아이파크",
         subtitle: "주거의 새로운 패러다임",
         copy: "합리적인 임대료로 10년까지 보장!",
         copySub: "",
@@ -564,7 +565,7 @@
     if (entry.type === "image" && entry.src) {
       const block = document.createElement("div");
       block.className = "menupage-image-node";
-      if (entry.className) block.classList.add(entry.className);
+      if (entry.className) entry.className.split(/\s+/).filter(Boolean).forEach(function(c) { block.classList.add(c); });
       block.appendChild(createCanvasImg(entry.src, imageAlt));
       return block;
     }
@@ -572,7 +573,7 @@
     if (entry.type === "stack") {
       const stack = document.createElement("div");
       stack.className = "menupage-image-stack-col";
-      if (entry.className) stack.classList.add(entry.className);
+      if (entry.className) entry.className.split(/\s+/).filter(Boolean).forEach(function(c) { stack.classList.add(c); });
       (Array.isArray(entry.images) ? entry.images : []).forEach((src) => {
         if (!src) return;
         stack.appendChild(createCanvasImg(src, imageAlt));
@@ -612,6 +613,23 @@
           if (node) row.appendChild(node);
         });
         wrap.appendChild(row);
+        return;
+      }
+
+      if (item.type === "location-card") {
+        const card = document.createElement("div");
+        card.className = "menupage-location-card menupage-location-section";
+        const main = document.createElement("div");
+        main.className = "n6-location-main";
+        if (item.mainImage) main.appendChild(createCanvasImg(item.mainImage, imageAlt));
+        card.appendChild(main);
+        if (item.subImage) {
+          const sub = document.createElement("div");
+          sub.className = "n6-location-sub-card";
+          sub.appendChild(createCanvasImg(item.subImage, imageAlt));
+          card.appendChild(sub);
+        }
+        wrap.appendChild(card);
         return;
       }
 
@@ -958,6 +976,66 @@
     return selected;
   }
 
+  function initMenuLocationMagnifier() {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var cards = document.querySelectorAll('#menupage-canvas .menupage-location-card');
+    if (!cards.length) return;
+    cards.forEach(function(card) {
+      if (card.dataset.magnifierInit) return;
+      card.dataset.magnifierInit = '1';
+      var images = [].slice.call(card.querySelectorAll('.n6-location-main > img'));
+      var excludedArea = card.querySelector('.n6-location-sub-card');
+      if (!images.length) return;
+      var lens = document.createElement('div');
+      lens.className = 'n6-magnifier-lens';
+      card.appendChild(lens);
+      var zoom = 1.85;
+      function getActiveImage(clientX, clientY) {
+        for (var i = 0; i < images.length; i++) {
+          var rect = images[i].getBoundingClientRect();
+          if (clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom) return images[i];
+        }
+        return images[0];
+      }
+      function syncLensImage(targetImg) {
+        var src = targetImg.currentSrc || targetImg.src;
+        if (src && lens.dataset.src !== src) {
+          lens.style.backgroundImage = 'url("' + src + '")';
+          lens.dataset.src = src;
+        }
+      }
+      function moveLens(event) {
+        if (excludedArea) {
+          var er = excludedArea.getBoundingClientRect();
+          if (event.clientX >= er.left && event.clientX <= er.right && event.clientY >= er.top && event.clientY <= er.bottom) {
+            card.classList.remove('is-magnifying');
+            return;
+          }
+        }
+        var cardRect = card.getBoundingClientRect();
+        var size = lens.offsetWidth || 190;
+        var radius = size / 2;
+        var x = event.clientX - cardRect.left;
+        var y = event.clientY - cardRect.top;
+        var clampedX = Math.max(radius, Math.min(cardRect.width - radius, x));
+        var clampedY = Math.max(radius, Math.min(cardRect.height - radius, y));
+        var activeImg = getActiveImage(event.clientX, event.clientY);
+        var imgRect = activeImg.getBoundingClientRect();
+        var imgX = Math.max(0, Math.min(imgRect.width, event.clientX - imgRect.left));
+        var imgY = Math.max(0, Math.min(imgRect.height, event.clientY - imgRect.top));
+        syncLensImage(activeImg);
+        lens.style.left = clampedX + 'px';
+        lens.style.top = clampedY + 'px';
+        lens.style.backgroundSize = imgRect.width * zoom + 'px ' + imgRect.height * zoom + 'px';
+        lens.style.backgroundPosition = (-imgX * zoom + radius) + 'px ' + (-imgY * zoom + radius) + 'px';
+      }
+      syncLensImage(images[0]);
+      card.addEventListener('mouseenter', function(event) { card.classList.add('is-magnifying'); moveLens(event); });
+      card.addEventListener('mousemove', function(event) { card.classList.add('is-magnifying'); moveLens(event); });
+      card.addEventListener('mouseleave', function() { card.classList.remove('is-magnifying'); });
+    });
+  }
+
   function renderContent(group, tab, variant) {
     const groupContent = CONTENT_CONFIG[group] || {};
     const content = groupContent[tab] || groupContent.default || {};
@@ -994,6 +1072,7 @@
         ? selectedVariant.image
         : content.image || "";
     canvasEl.classList.toggle("has-variant-tabs", group === "type" && !!selectedVariant);
+    canvasEl.classList.toggle("is-location-layout", group === "business" && tab === "location");
 
     titleEl.textContent = "";
     const logoImg = document.createElement("img");
@@ -1028,6 +1107,10 @@
 
     renderSpecs(specs);
     renderNotes(notes);
+
+    if (group === 'business' && tab === 'location') {
+      initMenuLocationMagnifier();
+    }
   }
 
   function initContentReveal() {
@@ -1209,18 +1292,70 @@
     });
   }
 
-  function initMenuPage() {
-    initBasicContentGuard();
-
-    const { group, tab, variant } = getStateFromUrl();
+  function runPage(group, tab, variant) {
     setHeaderActive(group);
     renderHero(group, tab);
     renderTabs(group, tab, variant);
     renderContent(group, tab, variant);
     initContentReveal();
     bindReserveLinkRouting();
+  }
+
+  var NAV_FADE_MS = 160;
+
+  function navigate(group, tab, variant) {
+    var url = new URL(window.location.href);
+    url.searchParams.set("group", group);
+    url.searchParams.set("tab", tab);
+    if (variant) {
+      url.searchParams.set("variant", variant);
+    } else {
+      url.searchParams.delete("variant");
+    }
+    history.pushState({}, "", url.pathname + "?" + url.searchParams.toString());
+
+    var main = document.querySelector(".menupage-main");
+    if (main) main.classList.add("menupage-nav-fade");
+
+    setTimeout(function () {
+      runPage(group, tab, variant);
+      if (main) {
+        main.classList.remove("menupage-nav-fade");
+      }
+    }, NAV_FADE_MS);
+  }
+
+  function bindSpaNavigation() {
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest("a[href*=\"menu-page.html\"]");
+      if (!link) return;
+      e.preventDefault();
+      var url = new URL(link.href, window.location.href);
+      var g = url.searchParams.get("group") || "business";
+      var t = url.searchParams.get("tab") || "overview";
+      var v = url.searchParams.get("variant") || "";
+      navigate(g, t, v);
+    });
+
+    window.addEventListener("popstate", function () {
+      var state = getStateFromUrl();
+      var main = document.querySelector(".menupage-main");
+      if (main) main.classList.add("menupage-nav-fade");
+      setTimeout(function () {
+        runPage(state.group, state.tab, state.variant);
+        if (main) main.classList.remove("menupage-nav-fade");
+      }, NAV_FADE_MS);
+    });
+  }
+
+  function initMenuPage() {
+    initBasicContentGuard();
+
+    const { group, tab, variant } = getStateFromUrl();
+    runPage(group, tab, variant);
     bindMobileLayoutGuard();
     stabilizeMobileMenuLayout();
+    bindSpaNavigation();
   }
 
   if (document.readyState === "loading") {
