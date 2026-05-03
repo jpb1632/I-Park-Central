@@ -4277,6 +4277,15 @@ body.unit-types-lightbox-open {
   height: 14rem;
   resize: none
 }
+.properties-N9 .form-control {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.properties-N9 .form-control:focus,
+.properties-N9 .form-control:focus-visible {
+  border-color: #001eb9;
+  box-shadow: 0 0 0 0.35rem rgba(0, 30, 185, 0.08);
+  outline: none;
+}
 .properties-N9 .form-wrap {
   display: flex;
   align-items: center;
@@ -4920,9 +4929,17 @@ body {
   height: calc(20px * var(--consult-scale));
   padding: 0 calc(6px * var(--consult-scale));
   font-size: calc(10px * var(--consult-scale));
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 2px;
-  background: #fff
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease
+}
+.fixed-consult-bar.is-split .consult-form input:focus,
+.fixed-consult-bar.is-split .consult-form input:focus-visible {
+  border-color: #001eb9;
+  box-shadow: 0 0 0 2px rgba(0, 30, 185, 0.22);
+  outline: none
 }
 .fixed-consult-bar.is-split .consult-privacy {
   display: flex;
