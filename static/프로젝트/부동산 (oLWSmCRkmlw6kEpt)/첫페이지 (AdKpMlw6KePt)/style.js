@@ -602,6 +602,10 @@
         return (index + len) % len;
       }
 
+      function getPopupTransform(positionIndex) {
+        return "translate3d(-" + (positionIndex * 100) + "%, 0, 0)";
+      }
+
       function setPopupTrackPosition(positionIndex, useTransition) {
         if (!isMobilePopup()) {
           $popupTrack.css({ transition: "", transform: "" });
@@ -610,12 +614,12 @@
 
         if (useTransition) {
           $popupTrack.css("transition", "");
-          $popupTrack.css("transform", "translateX(-" + (positionIndex * 100) + "%)");
+          $popupTrack.css("transform", getPopupTransform(positionIndex));
           return;
         }
 
         $popupTrack.css("transition", "none");
-        $popupTrack.css("transform", "translateX(-" + (positionIndex * 100) + "%)");
+        $popupTrack.css("transform", getPopupTransform(positionIndex));
         const node = $popupTrack.get(0);
         if (node) void node.offsetWidth;
         $popupTrack.css("transition", "");
@@ -1655,10 +1659,63 @@ function initN5Reveal(sectionEl) {
     $(".fixed-consult-bar.is-split").each(function() {
       const $block = $(this);
       hoistFixedConsultBar($block);
+      const $formWrap = $block.find(".consult-form-wrap").first();
       const $nameInput = $block.find(".consult-form input[type='text']").first();
       const $phoneInput = $block.find(".consult-form input[type='tel']").first();
       const $privacyCheck = $block.find(".consult-privacy-check").first();
+      const $privacyLabel = $block.find(".consult-privacy").first();
       const $submitBtn = $block.find(".consult-submit").first();
+      const $callLink = $block.find(".consult-call").first();
+
+      function updateConsultWritingMode(active) {
+        $block.toggleClass("is-writing", !!active);
+        const hasWritingBar = document.querySelector(".fixed-consult-bar.is-split.is-writing");
+        document.body.classList.toggle("consult-writing-mode", !!hasWritingBar);
+      }
+
+      if ($formWrap.length) {
+        $formWrap
+          .off("focusin.consultWritingMode focusout.consultWritingMode")
+          .on("focusin.consultWritingMode", function() {
+            updateConsultWritingMode(true);
+          })
+          .on("focusout.consultWritingMode", function() {
+            window.setTimeout(function() {
+              const activeElement = document.activeElement;
+              if (activeElement && $formWrap[0].contains(activeElement)) return;
+              updateConsultWritingMode(false);
+            }, 80);
+          });
+      }
+
+      if ($callLink.length) {
+        const callNode = $callLink[0];
+        $callLink.attr("target", "_top");
+
+        if (callNode.dataset.consultCallBound !== "true") {
+          callNode.dataset.consultCallBound = "true";
+          callNode.addEventListener("click", function(event) {
+            const href = callNode.getAttribute("href");
+            if (!href || !href.startsWith("tel:")) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+            if (typeof event.stopImmediatePropagation === "function") {
+              event.stopImmediatePropagation();
+            }
+            updateConsultWritingMode(false);
+            if (document.activeElement && typeof document.activeElement.blur === "function") {
+              document.activeElement.blur();
+            }
+
+            try {
+              window.top.location.href = href;
+            } catch (error) {
+              window.location.href = href;
+            }
+          }, true);
+        }
+      }
 
       if ($nameInput.length) {
         let isComposing = false;
@@ -1702,6 +1759,37 @@ function initN5Reveal(sectionEl) {
       }
 
       if (!$privacyCheck.length || !$submitBtn.length) return;
+
+      if ($privacyLabel.length) {
+        const privacyNode = $privacyLabel[0];
+        const checkboxNode = $privacyCheck[0];
+
+        if (privacyNode.dataset.consultPrivacyBound !== "true") {
+          privacyNode.dataset.consultPrivacyBound = "true";
+          privacyNode.addEventListener("click", function(event) {
+            const target = event.target;
+            if (target === checkboxNode || (target.closest && target.closest(".privacy-detail-btn"))) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+            if (typeof event.stopImmediatePropagation === "function") {
+              event.stopImmediatePropagation();
+            }
+
+            checkboxNode.checked = !checkboxNode.checked;
+            checkboxNode.dispatchEvent(new Event("change", { bubbles: true }));
+            updateConsultWritingMode(true);
+
+            if (typeof checkboxNode.focus === "function") {
+              try {
+                checkboxNode.focus({ preventScroll: true });
+              } catch (error) {
+                checkboxNode.focus();
+              }
+            }
+          }, true);
+        }
+      }
 
       $submitBtn.off("click.privacyConsentGuard").on("click.privacyConsentGuard", function(event) {
         if ($nameInput.length) {
