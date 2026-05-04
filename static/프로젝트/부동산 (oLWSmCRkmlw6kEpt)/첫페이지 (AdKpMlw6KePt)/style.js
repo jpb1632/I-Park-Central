@@ -12,8 +12,7 @@
         { tab: "siteplan", label: "단지배치도" },
         { tab: "unitplan", label: "동호수배치도" },
         { tab: "community", label: "커뮤니티" },
-        { tab: "myhills", label: "마이힐스" },
-        { tab: "hsystem", label: "H-시스템" },
+        { tab: "concierge", label: "컨시어지" },
       ];
 
       function buildComplexSubMenuHtml(itemClass, linkClass) {

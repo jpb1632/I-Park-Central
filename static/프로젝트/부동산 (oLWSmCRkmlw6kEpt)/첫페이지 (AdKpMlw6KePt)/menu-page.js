@@ -91,7 +91,6 @@
       tabs: [
         { key: "overview", label: "사업개요" },
         { key: "location", label: "입지환경" },
-        { key: "brand", label: "브랜드소개" },
         { key: "premium", label: "프리미엄" },
       ],
     },
@@ -102,8 +101,7 @@
         { key: "siteplan", label: "단지배치도" },
         { key: "unitplan", label: "동호수배치도" },
         { key: "community", label: "커뮤니티" },
-        { key: "myhills", label: "마이힐스" },
-        { key: "hsystem", label: "H-시스템" },
+        { key: "concierge", label: "컨시어지" },
       ],
     },
     type: {
@@ -129,12 +127,12 @@
           label: "타입",
           hidePrimary: true,
           items: [
-            { key: "59a", label: "59㎡A", image: "../../../../new-assets/menu/59A_1.jpg" },
-            { key: "59b", label: "59㎡B", image: "../../../../new-assets/menu/59B_1.jpg" },
-            { key: "59c", label: "59㎡C", image: "../../../../new-assets/menu/59C_1.jpg" },
-            { key: "84a", label: "84㎡A", image: "../../../../new-assets/menu/84A_1.jpg" },
-            { key: "84b", label: "84㎡B", image: "../../../../new-assets/menu/84B_1.jpg" },
-            { key: "84c", label: "84㎡C", image: "../../../../new-assets/menu/84C_1.jpg" },
+            { key: "74a", label: "74A", image: "../../../../new-assets/menu/74a.jpg" },
+            { key: "84a", label: "84A", image: "../../../../new-assets/menu/84a.jpg" },
+            { key: "84b", label: "84B", image: "../../../../new-assets/menu/84b.jpg" },
+            { key: "89oa", label: "89OA", image: "../../../../new-assets/menu/89oa.jpg" },
+            { key: "89ob", label: "89OB", image: "../../../../new-assets/menu/89ob.jpg" },
+            { key: "89oc", label: "89OC", image: "../../../../new-assets/menu/89oc.jpg" },
           ],
         },
       ],
@@ -146,8 +144,38 @@
           label: "인테리어",
           hidePrimary: true,
           items: [
-            { key: "54i", label: "54㎡", image: "../../../../new-assets/menu/54I_h1.jpg" },
-            { key: "84i", label: "84㎡", image: "../../../../new-assets/menu/84I_h1.jpg" },
+            {
+              key: "living",
+              label: "LIVING ROOM",
+              images: [
+                "../../../../new-assets/menu/living_room_1.webp",
+                "../../../../new-assets/menu/living_room_2.webp",
+              ],
+            },
+            {
+              key: "bedroom",
+              label: "BEDROOM",
+              images: [
+                "../../../../new-assets/menu/bedroom_1.webp",
+                "../../../../new-assets/menu/bedroom_2.webp",
+              ],
+            },
+            {
+              key: "dining",
+              label: "DINING ROOM",
+              images: [
+                "../../../../new-assets/menu/dining_room_1.webp",
+                "../../../../new-assets/menu/dining_room_2.webp",
+              ],
+            },
+            {
+              key: "bathroom",
+              label: "BATHROOM",
+              images: [
+                "../../../../new-assets/menu/bathroom_1.webp",
+                "../../../../new-assets/menu/bathroom_2.webp",
+              ],
+            },
           ],
         },
       ],
@@ -201,26 +229,41 @@
     business: {
       overview: {
         title: "의정부역 센트럴 아이파크 사업개요",
-        subtitle: "의정부 1,816세대 1군 브랜드 아파트",
-        copy: "의정부역 센트럴 아이파크",
+        subtitle: "의정부, 그 심장부의 아이파크",
+        copy: "신세계 백화점, CGV, 로데오거리 등 의정부 최중심 인프라!",
         copySub: "",
         image: "",
         canvasLayout: [
           {
-            type: "stack",
-            images: [
-              "../../../../new-assets/menu/meun_a1.jpg",
-              "../../../../new-assets/menu/meun_a2.jpg",
-            ],
+            type: "image",
+            src: "../../../../new-assets/menu/main2_i2.png",
           },
         ],
-        specs: [],
-        notes: [],
+        specs: [
+          [
+            "사업명칭",
+            "의정부 캠프라과디아 주상복합 신축공사(E4BL)",
+            "대지위치",
+            "경기도 의정부시 의정부동 253-19일원",
+          ],
+          [
+            "건축규모",
+            "지하 2층 ~ 지상 47층 3개동",
+            "대지면적",
+            "9,076.90m² / 연면적 103,703.91m²",
+          ],
+          ["세대수", "총 556세대 / 아파트 400세대, 오피스텔 156실", "", ""],
+        ],
+        notes: [
+          "본 홍보물에 사용된 CG 및 일러스트는 소비자의 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.",
+          "상기 개발계획도, 지역도 상에 기재된 교통, 학교, 공원, 상업시설 등 각종 개발 계획은 사업 진행과정 및 관계기관의 사정에 따라 변동 또는 취소될 수 있으며 이는 당사와 무관합니다.",
+          "단지 인근의 각종 개발계획 및 도로 등의 기반시설은 인·허가나 정부 시책에 따라 변경 및 취소 가능한 바, 해당 인·허가청 및 현장에서 확인하시기 바라며 시행사 및 시공사와 무관합니다.",
+        ],
       },
       location: {
         title: "의정부역 센트럴 아이파크 입지환경",
-        subtitle: "서울까지 2정거장! 더블역세권",
-        copy: "강남까지 약 20분대 도착!",
+        subtitle: "강남까지 20분대! 트리플 역세권",
+        copy: "1호선, 경전철, 교외선, GTX-C까지! 강남권 라이프를 더하다!",
         copySub: "",
         image: "",
         canvasLayout: [
@@ -235,7 +278,11 @@
           },
         ],
         specs: [],
-        notes: [],
+        notes: [
+          "본 홍보물에 사용된 CG 및 일러스트는 소비자의 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.",
+          "상기 개발계획도, 지역도 상에 기재된 교통, 학교, 공원, 상업시설 등 각종 개발 계획은 사업 진행과정 및 관계기관의 사정에 따라 변동 또는 취소될 수 있으며 이는 당사와 무관합니다.",
+          "단지 인근의 각종 개발계획 및 도로 등의 기반시설은 인·허가나 정부 시책에 따라 변경 및 취소 가능한 바, 해당 인·허가청 및 현장에서 확인하시기 바라며 시행사 및 시공사와 무관합니다.",
+        ],
       },
       brand: {
         title: "의정부역 센트럴 아이파크 브랜드소개",
@@ -251,8 +298,8 @@
       },
       premium: {
         title: "의정부역 센트럴 아이파크 프리미엄",
-        subtitle: "더블역세권, 숲세권, 학세권까지 모두 품은",
-        copy: "의정부역 센트럴 아이파크!",
+        subtitle: "탄탄한 1군 브랜드의 아이파크",
+        copy: "초고층, 트리플 역세권, 최중심 인프라, 고품격 커뮤니티까지!",
         copySub: "",
         image: "",
         canvasLayout: [
@@ -261,19 +308,20 @@
             columns: 2,
             className: "menupage-premium-grid",
             images: [
-              "../../../../new-assets/menu/M_premium_h1%20(1).png",
-              "../../../../new-assets/menu/M_premium_h1%20(2).png",
-              "../../../../new-assets/menu/M_premium_h1%20(3).png",
-              "../../../../new-assets/menu/M_premium_h1%20(4).png",
-              "../../../../new-assets/menu/M_premium_h1%20(5).png",
-              "../../../../new-assets/menu/M_premium_h1%20(6).png",
-              "../../../../new-assets/menu/M_premium_h1%20(7).png",
-              "../../../../new-assets/menu/M_premium_h1%20(8).png",
+              "../../../../new-assets/menu/premium_i1%20(1).png",
+              "../../../../new-assets/menu/premium_i1%20(2).png",
+              "../../../../new-assets/menu/premium_i1%20(3).png",
+              "../../../../new-assets/menu/premium_i1%20(4).png",
+              "../../../../new-assets/menu/premium_i1%20(5).png",
+              "../../../../new-assets/menu/premium_i1%20(6).png",
+              "../../../../new-assets/menu/premium_i1%20(7).png",
             ],
           },
         ],
         specs: [],
-        notes: [],
+        notes: [
+          "본 홍보물에 사용된 CG 및 일러스트는 소비자의 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.",
+        ],
       },
       default: {
         title: "의정부역 센트럴 아이파크",
@@ -293,45 +341,75 @@
         image: "../resources/images/complex guide1.jpg",
       },
       community: {
-        subtitle: "삶이 풍요로운 수준높은 커뮤니티",
-        copy: "당신의 일상을 특별하게 합니다.",
+        subtitle: "교통 소음과 외부인의 차단으로",
+        copy: "아이들의 안전과 프라이빗한 커뮤니티!",
         copySub: "",
         image: "",
         canvasLayout: [
-          { type: "image", src: "../../../../new-assets/community_h1.jpg" },
+          {
+            type: "image",
+            src: "../../../../new-assets/menu/community_i2.jpg",
+            className: "menupage-community-main",
+          },
+          { type: "gap", size: "community" },
+          {
+            type: "row",
+            columns: 3,
+            className: "menupage-community-details-grid",
+            images: [
+              "../../../../new-assets/menu/Community_Details_i1%20(1).png",
+              "../../../../new-assets/menu/Community_Details_i1%20(2).png",
+              "../../../../new-assets/menu/Community_Details_i1%20(3).png",
+              "../../../../new-assets/menu/Community_Details_i1%20(4).png",
+              "../../../../new-assets/menu/Community_Details_i1%20(5).png",
+              "../../../../new-assets/menu/Community_Details_i1%20(6).png",
+            ],
+          },
+        ],
+        notes: [
+          "본 지면상의 단지배치도 및 CG 이미지는 소비자의 이해를 돕기 위해 제작한 것으로 실제와 차이가 있을 수 있으며, 향후 개발 계획 및 인·허가에 따라 변경될 수 있습니다.",
         ],
       },
       siteplan: {
-        subtitle: "바람길까지 설계한 여유로운 단지배치",
-        copy: "통경축 확보로 쾌적함과 여유를 한번에!",
+        subtitle: "바람의 길, 자연의 길",
+        copy: "그리고 사람의 길을 내다",
         copySub: "",
         image: "",
         canvasLayout: [
-          { type: "image", src: "../../../../new-assets/complex arrangement_h1.jpg" },
+          { type: "image", src: "../../../../new-assets/menu/complex arrangement_i1.jpg" },
+        ],
+        notes: [
+          "본 지면상의 단지배치도 및 CG 이미지는 소비자의 이해를 돕기 위해 제작한 것으로 실제와 차이가 있을 수 있으며, 향후 개발 계획 및 인·허가에 따라 변경될 수 있습니다.",
         ],
       },
       unitplan: {
-        subtitle: "의정부 1,816세대 1군 브랜드 아파트",
-        copy: "의정부역 센트럴 아이파크",
+        subtitle: "내일의 심장부를 사는",
+        copy: "의정부 최중심 GTX 특급 라이프",
         copySub: "",
         image: "",
         canvasLayout: [
-          { type: "image", src: "../../../../new-assets/menu/number arrangement_h1.jpg" },
+          { type: "image", src: "../../../../new-assets/menu/number arrangement_i1.webp" },
+        ],
+        notes: [
+          "본 지면 상의 동호 배치도 등은 소비자의 이해를 돕기 위한 이미지 컷으로 실제 시공 시 다소 차이가 있을 수 있으며, 향후 개발 계획 및 인·허가에 따라 변경될 수 있습니다.",
         ],
       },
-      myhills: {
+      concierge: {
         subtitle: "클릭 한번으로 누리는 아이파크",
         copy: "사용자 편의를 생각한 생활 솔루션",
         copySub: "",
         image: "",
         canvasLayout: [
-          {
-            type: "stack",
-            images: [
-              "../../../../new-assets/MyHills_h1.png",
-              "../../../../new-assets/menu/M_MyHills_2_h1.png",
-            ],
-          },
+          { type: "image", src: "../../../../new-assets/menu/concierge_i1%20(1).png", className: "menupage-concierge-section" },
+          { type: "gap", size: "concierge" },
+          { type: "image", src: "../../../../new-assets/menu/concierge_i1%20(2).png", className: "menupage-concierge-section" },
+          { type: "gap", size: "concierge" },
+          { type: "image", src: "../../../../new-assets/menu/concierge_i1%20(3).png", className: "menupage-concierge-section" },
+          { type: "gap", size: "concierge" },
+          { type: "image", src: "../../../../new-assets/menu/concierge_i1%20(4).png", className: "menupage-concierge-section" },
+        ],
+        notes: [
+          "상기 이미지는 서비스 예시 이미지이며, 실제 제공 서비스와 일부 다를 수 있습니다. 주거서비스는 전문 위탁업체를 통해 운영되며, 입주민 전용 APP으로 신청하는 유상 서비스입니다. 제공 서비스는 운영업체, 현장 여건, 이용률, 입주민 선호도 등에 따라 변경될 수 있습니다. 시공사는 준공 후 1년간 APP 플랫폼 구축 및 기본 유지 비용을 부담하며, 해당 계약 기간 중 입주자는 위탁업체 변경을 임의로 요구할 수 없습니다. 계약 종료 후 서비스 연장 또는 업체 재선정은 입주자대표회의를 통해 결정되며, 이후 발생하는 APP 유지보수비 등 유지 비용은 입주자가 부담합니다. 비대면진료서비스는 입주민 전용 APP을 통해 제공되며, 위탁계약 3년간 별도 유지보수 비용 부담 없이 이용할 수 있습니다. 계약 기간 중 입주자는 위탁업체 변경을 임의로 요구할 수 없습니다. 견본주택 및 홍보물의 서비스 내용은 이해를 돕기 위한 예시이며, 실제 운영 시 변경될 수 있습니다.",
         ],
       },
       hsystem: {
@@ -367,16 +445,20 @@
         copySub: "",
         image: "",
         specs: [],
-        notes: [],
+        notes: [
+          "본 평면도는 소비자의 이해를 돕기 위해 제작된 것으로 외곽라인, 내부 레이아웃, 인테리어 마감, 내부 디테일, 가구 디자인 등 세부사항은 변경될 수 있으니, 자세한 사항은 견본주택에 문의하시어 계약 등에 착오 없으시기 바랍니다.",
+        ],
       },
       interior: {
         title: "의정부역 센트럴 아이파크",
-        subtitle: "풍요로움과 아름다움을 담은",
-        copy: "아이파크만의 고품격 인테리어",
+        subtitle: "공간에 대한 깊이와 이해로 완성된 미학",
+        copy: "아이파크만의 고품격 인테리어를 경험해 보세요",
         copySub: "",
         image: "",
         specs: [],
-        notes: [],
+        notes: [
+          "본 지면 상의 사진은 사이버 모델하우스 및 견본주택 오픈일 이전에 촬영한 것으로, 기본 마감재 이외의 옵션 및 견본주택 연출을 위한 상품이 포함되어 있으며, 마감재 색상 및 사항은 실제와 상이할 수 있으니 반드시 견본주택에서 확인하시기 바랍니다.",
+        ],
       },
       default: {
         title: "의정부역 센트럴 아이파크",
@@ -425,7 +507,14 @@
       .map((item) => {
         const key = Array.isArray(item) ? item[0] : "";
         const value = Array.isArray(item) ? item[1] : "";
-        return `<tr><th scope="row">${escapeHtml(key)}</th><td>${escapeHtml(value)}</td></tr>`;
+        const subKey = Array.isArray(item) ? item[2] : "";
+        const subValue = Array.isArray(item) ? item[3] : "";
+
+        if (subKey || subValue) {
+          return `<tr><th scope="row">${escapeHtml(key)}</th><td>${escapeHtml(value)}</td><th scope="row">${escapeHtml(subKey)}</th><td>${escapeHtml(subValue)}</td></tr>`;
+        }
+
+        return `<tr><th scope="row">${escapeHtml(key)}</th><td colspan="3">${escapeHtml(value)}</td></tr>`;
       })
       .join("");
     wrapEl.hidden = false;
@@ -863,6 +952,74 @@
     canvasEl.classList.add("menupage-swap-up");
   }
 
+  function initInteriorImageReveal(canvasEl) {
+    if (!canvasEl || !canvasEl.classList.contains("is-interior-layout")) return;
+
+    const images = Array.from(canvasEl.querySelectorAll(".menupage-image-stack img"));
+    if (!images.length) return;
+
+    images.forEach((img, index) => {
+      img.classList.remove("is-visible");
+      img.style.transitionDelay = `${Math.min(index * 180, 240)}ms`;
+    });
+
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      images.forEach((img) => img.classList.add("is-visible"));
+      return;
+    }
+
+    const reveal = (img) => {
+      window.requestAnimationFrame(() => {
+        img.classList.add("is-visible");
+      });
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      images.forEach(reveal);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          reveal(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    images.forEach((img) => observer.observe(img));
+  }
+
+  function swapVariantCanvas(canvasEl, imageEl, placeholderEl, nextVariant, title) {
+    if (!canvasEl) return;
+    canvasEl.classList.remove("menupage-swap-up", "menupage-swap-out");
+    setCanvasImage(
+      canvasEl,
+      imageEl,
+      placeholderEl,
+      nextVariant.image,
+      title,
+      nextVariant.images || [],
+      nextVariant.canvasLayout || []
+    );
+
+    if (canvasEl.classList.contains("is-interior-layout")) {
+      initInteriorImageReveal(canvasEl);
+      return;
+    }
+
+    playCanvasSwapAnimation(canvasEl);
+  }
+
   function renderTypeVariantTabs(group, tab, variant, onVariantChange) {
     const canvasEl = document.getElementById("menupage-canvas");
     if (!canvasEl || !canvasEl.parentNode) return null;
@@ -1056,23 +1213,23 @@
     const imageEl = document.getElementById("menupage-image");
     const placeholderEl = document.getElementById("menupage-placeholder");
     const selectedVariant = renderTypeVariantTabs(group, tab, variant, (nextVariant) => {
-      setCanvasImage(
-        canvasEl,
-        imageEl,
-        placeholderEl,
-        nextVariant.image,
-        title,
-        nextVariant.images || [],
-        nextVariant.canvasLayout || []
-      );
-      playCanvasSwapAnimation(canvasEl);
+      swapVariantCanvas(canvasEl, imageEl, placeholderEl, nextVariant, title);
     });
     const resolvedImage =
       group === "type" && selectedVariant && selectedVariant.image
         ? selectedVariant.image
         : content.image || "";
+    const resolvedImages =
+      group === "type" && selectedVariant && Array.isArray(selectedVariant.images)
+        ? selectedVariant.images
+        : content.images || [];
+    const resolvedCanvasLayout =
+      group === "type" && selectedVariant && Array.isArray(selectedVariant.canvasLayout)
+        ? selectedVariant.canvasLayout
+        : content.canvasLayout || [];
     canvasEl.classList.toggle("has-variant-tabs", group === "type" && !!selectedVariant);
     canvasEl.classList.toggle("is-location-layout", group === "business" && tab === "location");
+    canvasEl.classList.toggle("is-interior-layout", group === "type" && tab === "interior");
 
     titleEl.textContent = "";
     const logoImg = document.createElement("img");
@@ -1101,9 +1258,13 @@
       placeholderEl,
       resolvedImage,
       title,
-      content.images || [],
-      content.canvasLayout || []
+      resolvedImages,
+      resolvedCanvasLayout
     );
+
+    if (canvasEl.classList.contains("is-interior-layout")) {
+      initInteriorImageReveal(canvasEl);
+    }
 
     renderSpecs(specs);
     renderNotes(notes);
@@ -1292,6 +1453,27 @@
     });
   }
 
+  function closeMenuNavigationOverlay() {
+    const header = document.querySelector(".menu-page-view .properties-N1");
+    if (!header) return;
+
+    header.classList.remove("block-active");
+    header.querySelectorAll(".header-gnbitem").forEach((item) => {
+      item.classList.remove("item-active");
+    });
+
+    const fullMenu = header.querySelector(".header-fullmenu");
+    if (fullMenu) {
+      fullMenu.classList.remove("fullmenu-active");
+    }
+
+    header.querySelectorAll(".header-sublist").forEach((sublist) => {
+      sublist.style.display = "";
+      sublist.style.height = "";
+      sublist.style.overflow = "";
+    });
+  }
+
   function runPage(group, tab, variant) {
     setHeaderActive(group);
     renderHero(group, tab);
@@ -1329,11 +1511,15 @@
     document.addEventListener("click", function (e) {
       var link = e.target.closest("a[href*=\"menu-page.html\"]");
       if (!link) return;
+      if (e.defaultPrevented) return;
       e.preventDefault();
       var url = new URL(link.href, window.location.href);
       var g = url.searchParams.get("group") || "business";
       var t = url.searchParams.get("tab") || "overview";
       var v = url.searchParams.get("variant") || "";
+      if (link.closest(".properties-N1")) {
+        closeMenuNavigationOverlay();
+      }
       navigate(g, t, v);
     });
 
@@ -1364,5 +1550,3 @@
     initMenuPage();
   }
 })();
-
-
